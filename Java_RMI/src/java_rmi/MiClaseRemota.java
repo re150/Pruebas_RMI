@@ -6,25 +6,24 @@ package java_rmi;
 
 import java.rmi.RemoteException;
 import java.rmi.Remote;
+import miinterfazremota.MiInterfazRemota;
 import java.rmi.server.UnicastRemoteObject;
 /**
  *
  * @author angel
  */
 public class MiClaseRemota  extends UnicastRemoteObject  implements MiInterfazRemota{
-            public MiClaseRemota() throws java.rmi.RemoteException {
+     public MiClaseRemota() throws RemoteException {
             // Código del constructor
-            }
+     }
 
-            public void miMetodo1() throws java.rmi.RemoteException {
-            // Aquí ponemos el código que queramos
-            System.out.println("Estoy en miMetodo1()");
-}    
+     public void miMetodo1() throws RemoteException {
+      // Aquí ponemos el código que queramos
+      System.out.println("Estoy en miMetodo1()");
+    }    
 
-    @Override
     public int miMetodo2() throws RemoteException {
         System.out.println("¡Hello World!");
-        
         return 5;
     }
     
@@ -33,6 +32,15 @@ public class MiClaseRemota  extends UnicastRemoteObject  implements MiInterfazRe
 //
     }
  
+        public static void main(String[] args) {
+        try {
+           MiInterfazRemota mir = new MiClaseRemota();
+
+            java.rmi.Naming.rebind("//" + "192.168.100.1" + ":" +"1234" +"/PruebaRMI",mir);
+
+            } catch (Exception e) {
+            }
+    }
     
 }
 
