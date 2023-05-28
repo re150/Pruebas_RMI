@@ -36,7 +36,7 @@ public class MiClaseRemota  extends UnicastRemoteObject  implements MiInterfazRe
         try {
            MiInterfazRemota mir = new MiClaseRemota();
 
-            java.rmi.Naming.rebind("//" + "192.168.100.1" + ":" +"1234" +"/PruebaRMI",mir);
+            java.rmi.Naming.rebind("//" + "192.168.100.11" + ":" +"1234" +"/PruebaRMI",mir);
 
             } catch (Exception e) {
             }
